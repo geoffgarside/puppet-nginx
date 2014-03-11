@@ -99,14 +99,15 @@ server {
 
     client_max_body_size  10m;
 
-    # Crazed auth section:
 <% if auth['allowfrom'] != nil -%>
-  satisfy any;
-  <% auth['allowfrom'].split(',').reject {|i| i.empty?}.each do |allowip| -%>
-  allow <%= allowip %>;
-  <% end -%>
+    # Crazed auth section:
+    satisfy any;
+<% auth['allowfrom'].split(',').reject {|i| i.empty?}.each do |allowip| -%>
+    allow <%= allowip %>;
+<% end -%>
 <% end -%>
 <% if auth['auth'] == true or auth['auth'] == 'true' -%>
+    # Crazed auth section:
     auth_basic            "Credentials please";
     auth_basic_user_file  <%= auth['auth_file'] %>;
 <% end -%>
