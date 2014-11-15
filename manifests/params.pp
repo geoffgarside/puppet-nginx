@@ -47,6 +47,16 @@ class nginx::params {
         $user            = 'www'
         $default_webroot = '/usr/local/www'
       }
+    'darwin': {
+        $package         = 'nginx'
+        $service         = 'homebrew.mxcl.nginx'
+        $etcdir          = '/usr/local/etc/nginx'
+        $vdir            = "${etcdir}/sites-enabled"
+        $confd           = "${etcdir}/conf.d"
+        $threadcount     = $::processorcount
+        $user            = 'www'
+        $default_webroot = '/usr/local/var/www'
+      }
     default: {
       warning( "Sorry, nginx module isn't built for ${::operatingsystem} yet." )
     }

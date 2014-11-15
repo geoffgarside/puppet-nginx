@@ -68,4 +68,16 @@ class nginx::server (
       mode    => '0644',
       replace => false;
   }
+
+  if $::osfamily == 'Darwin' {
+    file { "/Library/LaunchDaemons/${nginx::params::service}.plist":
+      ensure  => file,
+      owner   => 'root',
+      group   => '0',
+      mode    => '0644',
+      source  => "/usr/local/opt/nginx/${nginx::params::service}.plist",
+      require => Package['nginx'],
+      before  => Service['nginx'],
+    }
+  }
 }
