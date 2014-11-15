@@ -57,7 +57,7 @@ class nginx::params {
         $confd           = "${etcdir}/conf.d"
         $logdir          = '/usr/local/var/log/nginx'
         $threadcount     = $::processorcount
-        $user            = 'www'
+        $user            = '_www'
         $default_webroot = '/usr/local/var/www'
       }
     default: {
