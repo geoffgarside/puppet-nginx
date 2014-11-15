@@ -28,6 +28,7 @@ class nginx::params {
         $etcdir          = '/etc/nginx'
         $vdir            = "${etcdir}/sites-enabled"
         $confd           = "${etcdir}/conf.d"
+        $logdir          = '/var/log/nginx'
         $threadcount     = $::processorcount
         $phpfpm_service  = 'php5-fpm'
         $fastcgi_params  = '/etc/nginx/fastcgi_params'
@@ -43,6 +44,7 @@ class nginx::params {
         $etcdir          = '/usr/local/etc/nginx'
         $vdir            = "${etcdir}/sites-enabled"
         $confd           = "${etcdir}/conf.d"
+        $logdir          = '/var/log/nginx'
         $threadcount     = '4'
         $user            = 'www'
         $default_webroot = '/usr/local/www'
@@ -53,6 +55,7 @@ class nginx::params {
         $etcdir          = '/usr/local/etc/nginx'
         $vdir            = "${etcdir}/sites-enabled"
         $confd           = "${etcdir}/conf.d"
+        $logdir          = '/usr/local/var/log/nginx'
         $threadcount     = $::processorcount
         $user            = 'www'
         $default_webroot = '/usr/local/var/www'

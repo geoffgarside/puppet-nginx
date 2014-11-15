@@ -37,8 +37,8 @@ http {
                            '"$request" $status $body_bytes_sent '
                            '"$http_referer" "$http_user_agent" $upstream_addr';
 
-  access_log /var/log/nginx/access.log;
-  error_log /var/log/nginx/error.log;
+  access_log <%= @logdir %>/access.log;
+  error_log <%= @logdir %>/error.log;
 
   ##
   # Gzip Settings
@@ -78,4 +78,3 @@ http {
   include <%= @etcdir %>/conf.d/*.conf;
   include <%= @etcdir %>/sites-enabled/*;
 }
-
